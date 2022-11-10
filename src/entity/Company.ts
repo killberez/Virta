@@ -11,9 +11,9 @@ export class Company {
 
     @OneToMany(() => Company, (company) => company.parentCompany)
     @JoinTable()
-    childCompanys: Company[]
+    childCompanies: Company[]
 
-    @ManyToOne(() => Company, (company) => company.childCompanys)
+    @ManyToOne(() => Company, (company) => company.childCompanies)
     parentCompany: Company
 
     @OneToMany(() => Station, (station) => station.company)

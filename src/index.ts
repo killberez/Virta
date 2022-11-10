@@ -104,12 +104,12 @@ const updateCompany = async (req: Request, res: Response) => {
                 id: req.body.child.id,
             },
             relations: {
-                childCompanys: true,
+                childCompanies: true,
             },
         })
-        company.childCompanys.push(childCompany)
+        company.childCompanies.push(childCompany)
         await companyRepository.save(company)
-        console.log(company.childCompanys)
+        console.log(company.childCompanies)
     }
     res.json(company)
 }
