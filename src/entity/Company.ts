@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinTable, ManyToOne } from "typeorm"
+import { Station } from "./Station"
 
 @Entity()
 export class Company {
@@ -7,4 +8,15 @@ export class Company {
 
     @Column()
     name: string
+
+    @OneToMany(() => Company, (company) => company.parentCompany)
+    @JoinTable()
+    childCompanys: Company[]
+
+    @ManyToOne(() => Company, (company) => company.childCompanys)
+    parentCompany: Company
+
+    @OneToMany(() => Station, (station) => station.company)
+    @JoinTable()
+    stations: Station[]
 }

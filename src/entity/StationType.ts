@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from "typeorm"
+import { Station } from "./Station"
 
 @Entity()
 export class StationType {
@@ -10,4 +11,8 @@ export class StationType {
 
     @Column()
     maxPower: number
+
+    @OneToOne(() => Station)
+    @JoinColumn()
+    station: Station
 }
