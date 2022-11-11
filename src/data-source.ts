@@ -1,8 +1,6 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
 require("dotenv").config();
-console.log(process.env.PASSWORD)
-
 
 export const AppDataSource = new DataSource({
     type: "postgres",
