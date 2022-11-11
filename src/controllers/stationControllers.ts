@@ -56,7 +56,6 @@ export const stationType = async (req: Request, res: Response) => {
 export const addStationType = async (req: Request, res: Response) => {
     const station = await AppDataSource.getRepository(Station).findOneBy({ id: req.body.id })
     const stationType = await AppDataSource.getRepository(StationType).findOneBy({ id: req.body.type })
-    console.log(stationType)
     await AppDataSource
         .createQueryBuilder()
         .relation(Station, "stationType")

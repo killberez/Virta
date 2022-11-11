@@ -63,7 +63,6 @@ export const getParent = async (req: Request, res: Response) => {
     const company = await AppDataSource.manager.findOneBy(Company, {
         id: parseInt(id),
     })
-    console.log(company)
     company.parentCompany = await AppDataSource
         .createQueryBuilder()
         .relation(Company, "parentCompany")
