@@ -10,7 +10,7 @@ export class Station {
     @Column()
     name: string
 
-    @OneToOne(() => StationType)
+    @ManyToOne(() => StationType)
     @JoinColumn()
     stationType: StationType
 
